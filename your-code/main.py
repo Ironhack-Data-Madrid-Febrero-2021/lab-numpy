@@ -1,37 +1,49 @@
 #1. Import the NUMPY package under the name np.
 
+import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
 
+np.version.version
+print(np.__version__)
+print(np.show_config())
 
 
-#3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
+#3. Generate a 2x3x5 3-dimensional array with random values. 
+# Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
 
+a = np.random.randint(0, 100, (2,3,5))
+a1 = np.random.standard_normal((2,3,5))
+a2 = np.zeros((2,3,5), dtype=int)
+
+print(f"three easy way np.random.randint {a}, np.random.standard_normal {a1}, np.zeros {a2}")
 
 #4. Print a.
 
-
+print(f"dimensional{a}")
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
+b = np.full((5,2,3), fill_value=1)
 
 
 #6. Print b.
 
-
+print(f"dimensional array with all values equaling 1{b}")
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-
+print (f"Do a and b have the same size? How do you prove that in Python code? {a.size}")
+print (f"Do a and b have the same size? How do you prove that in Python code? {b.size}")
 
 
 #8. Are you able to add a and b? Why or why not?
-
-
+a.sum() + b.sum()
+print(f"Are you able to add a and b Total = {a.sum() + b.sum()}")
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
