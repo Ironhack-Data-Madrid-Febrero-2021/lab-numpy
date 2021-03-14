@@ -85,16 +85,16 @@ In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 '''
 
-f = (d > d_mean) & (d < d_max)
-d[f] = 75
-f = (d < d_mean) & (d > d_min)
-d[f] = 25
-f = (d == d_mean)
-d[f] = 50
-f = (d >= d_max)
-d[f] = 100
-f = (d <= d_min)
-d[f] = 0
+e = (d > d_mean) & (d < d_max)
+f[e] = 75
+e = (d < d_mean) & (d > d_min)
+f[e] = 25
+e = (d == d_mean)
+f[e] = 50
+e = (d >= d_max)
+f[e] = 100
+e = (d <= d_min)
+f[e] = 0
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -116,8 +116,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-print(d)
-print(f)
+print('print d', d)
+print('print f', f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -131,3 +131,16 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+g = np.empty((2,3,5), dtype = str)
+e = (d > d_mean) & (d < d_max)
+g[e] = 'D'
+e = (d < d_mean) & (d > d_min)
+g[e] = 'B'
+e = (d == d_mean)
+g[e] = 'C'
+e = (d >= d_max)
+g[e] = 'E'
+e = (d <= d_min)
+g[e] = 'A'
+
+print('print g: ', g)
