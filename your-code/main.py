@@ -1,71 +1,81 @@
 #1. Import the NUMPY package under the name np.
 
-
+import  numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-
+print(np.__version__)
+print(np.show_config())
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
 
-
+a = np.random.randint(low=0, high=200, size=(2,3,5))
+a1 = np.random.rand(2, 3, 5)
+a2 = np.random.random((2, 3, 5))
 
 #4. Print a.
 
-
+print("A ARRAY")
+print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
-#Assign the array to variable "b"
+#Assign the array to variable "b".
 
-
+b = np.ones(shape=(5,2,3))
 
 #6. Print b.
 
-
+print("B ARRAY")
+print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-
-
+print(a.size == b.size, "True: A size = 2*3*5 = 30 = 5*2*3 = B size.")
 
 #8. Are you able to add a and b? Why or why not?
 
+'''We can not sum because of the dimensions, these are two arrays with transposed shapes. (2,3,5 and 5,2,3).'''
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-
+c = np.reshape(b,(2,3,5))
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-
+d = a + c 
+'''Now we can, since we have transposed B array to have the same shape of A.'''
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
-
+'''The difference of 1, is because d which is b transposed is an array of 1s and we are adding it to A which is a an array of random integers between 0 and 199.'''
 
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a * c
 
 #13. Does e equal to a? Why or why not?
 
-
+'''E equals A because E is A * C which is an array of 1. When multiplying by 1 you get the same number.'''
+print(e == a)
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
-
-
+d_max = (np.amax(d))
+d_min = (np.amin(d))
+d_mean = (np.mean(d))
+print(d_max, d_min, d_mean)
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
+f = np.empty((2,3,5))
 
 
 
-"""
+'''
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
 If a value in d is larger than d_mean but smaller than d_max, assign 75 to the corresponding value in f.
 If a value equals to d_mean, assign 50 to the corresponding value in f.
@@ -73,9 +83,22 @@ Assign 0 to the corresponding value(s) in f for d_min in d.
 Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
-"""
+'''
 
+e = (d > d_min) & (d < d_mean) 
+f[e] = 25
 
+e = (d > d_mean) & (d < d_max)
+f[e] = 75
+
+e = (d == d_mean)
+f[e] = 50
+
+e = (d >= d_max)
+f[e] = 100
+
+e = (d <= d_min)
+f[e] = 0
 
 
 """
@@ -98,7 +121,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(d)
+print(f)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -112,3 +136,20 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+
+e = (d > d_min) & (d < d_mean) 
+f[e] = 'B'
+
+e = (d > d_mean) & (d < d_max)
+f[e] = 'D'
+
+e = (d == d_mean)
+f[e] = 'C'
+
+e = (d >= d_max)
+f[e] = 'E'
+
+e = (d <= d_min)
+f[e] = 'A'
+
+print(g)
