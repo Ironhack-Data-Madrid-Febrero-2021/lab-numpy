@@ -137,19 +137,17 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
-e = (d > d_min) & (d < d_mean) 
-f[e] = 'B'
-
-e = (d > d_mean) & (d < d_max)
-f[e] = 'D'
-
-e = (d == d_mean)
-f[e] = 'C'
-
-e = (d >= d_max)
-f[e] = 'E'
+f = np.empty((2,3,5), dtype=str)
 
 e = (d <= d_min)
 f[e] = 'A'
+e = (d > d_min) & (d < d_mean) 
+f[e] = 'B'
+e = (d == d_mean)
+f[e] = 'C'
+e = (d > d_mean) & (d < d_max)
+f[e] = 'D'
+e = (d >= d_max)
+f[e] = 'E'
 
-print(g)
+print(f)
