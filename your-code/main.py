@@ -5,6 +5,9 @@ import numpy as np
 print (np.__version__)
 print (np.show_config())
 
+
+
+
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. 
 # How many ways can you find?
@@ -12,12 +15,12 @@ print (np.show_config())
 a = np.random.rand(2, 3, 5)
 print (a.round(3))
 
-
-        #Other ways
+#Other ways
 aa = np.full((2, 3, 5), fill_value= 10)
 print (aa)
 aaa = np.random.randint(20, 50, (2,3,5))
 print (aaa)
+
 
 
 
@@ -34,8 +37,13 @@ print (a.shape)
 print (b.shape)
 
 #8. Are you able to add a and b? Why or why not?
-#print (a + b)
+
+
+print (a + b)
         #Not is possible, because the shapes not are the same
+
+
+
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). 
 # Assign the transposed array to varialbe "c".
@@ -92,6 +100,8 @@ Assign 100 to the corresponding value(s) in f for d_max in d.
 In the end, f should have only the following values: 0, 25, 50, 75, and 100.
 Note: you don't have to use Numpy in this question.
 """
+
+
 condition_1 = (d > d_max) & (d < d_mean)
 f[condition] = 25
 condition_2 = (d > d_mean) & (d < d_max)
@@ -102,6 +112,7 @@ condition_4 = (d == d_min)
 f[condition_4] = 0
 condition_5 = (d == d_max)
 f[condition_5] = 100
+
 
 
 
@@ -135,6 +146,7 @@ print(f)
 
 
 
+
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
 ("A", "B", "C", "D", and "E") to label the array elements? You are expecting the result to be:
@@ -148,8 +160,8 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
 Again, you don't need Numpy in this question.
 """
 
-f = np.empty((2, 3, 5), dtype = str)
 
+f = np.empty((2, 3, 5), dtype = str)
 
 condition_1 = (d > d_max) & (d < d_mean)
 f[condition] = 'A'
